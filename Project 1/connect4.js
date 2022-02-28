@@ -2,8 +2,8 @@
 //     const =
 // }
 
-const player1 = "p1"; // red
-const player2 = "p2"; // yellow
+// const player1 = "p1"; // red
+// const player2 = "p2"; // yellow
 
 const actionIn = (chicken) => {
   const selectedEmpty = chicken.currentTarget.innerText;
@@ -27,14 +27,20 @@ const actionIn = (chicken) => {
     }
   }
 };
+
 const actionOut = () => {
   const leftEmpty = document.querySelectorAll(".empty");
   for (let i = 0; i < leftEmpty.length; i++) {
     leftEmpty[i].style.backgroundColor = "aquamarine";
   }
 };
-
-const playerChipIn = () => {};
+// upon click, i need to change bkgd-clr to player color and remove class empty/ add class filled ---------- this is where i left off
+const clicked = (e) => {
+  const fillCell = e.target.actionIn;
+  const allCells = document.querySelectorAll(".empty");
+  document.querySelector(".empty").addClass("filled");
+  console.log(allCells);
+};
 
 // if (document.querySelector("#currentPlayer").innerText == "Player 1") {
 //   // console.log("Player 1");
@@ -58,9 +64,7 @@ document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 //   selectedCell.style.backgroundColor = "aquamarine";
 // };
 
-// const playerChipIn = (chicken) => {
-//     .addClass('addColor')
-// };
+const playerChipIn = (e) => {};
 
 // const colorChange = (chicken) => {
 //     const colorSwitch = chicken.
@@ -70,7 +74,7 @@ const slotCell = document.querySelectorAll(".row-0");
 // console.log(gameSlot);
 slotCell.forEach((slot) => slot.addEventListener("mouseenter", actionIn));
 slotCell.forEach((slot) => slot.addEventListener("mouseleave", actionOut));
-slotCell.forEach((slot) => slotCell.addEventListener("click", playerChipIn));
+slotCell.forEach((chicken) => chicken.addEventListener("click", clicked));
 // slotCell.addEventListener("click", playerChipIn);
 // slotCell.on("mouseenter", "", colorChange);
 // slotCell.on("mouseleave");
