@@ -37,6 +37,38 @@ const actionOut = () => {
   }
 };
 
+const clicked = (chicken) => {
+  const selectedEmpty = chicken.currentTarget.innerText; //checks the inner text
+  // console.log(selectedEmpty); // console.log the inner text
+  const allCells = document.querySelectorAll(".empty"); // selecting all with class .empty and displaying as an array
+  // console.log(allCells); // displaying const allCells
+  for (let i = allCells.length - 1; i >= 0; i--) {
+    // checking the cells from bottom up
+    // console.log(i);
+    if (
+      allCells[i].innerText[1] == selectedEmpty && // checking the cells from bottom up to see if they match selectedEmpty
+      document.querySelector("#currentPlayer").innerText == "Player 1" // additional requirement to check which player it is and assign color related to player
+    ) {
+      // console.log(allCells[i].innerText[a]);
+      allCells[i].style.backgroundColor = "red";
+      allCells[i].classList.add("filled");
+      allCells[i].classList.add("red");
+      allCells[i].classList.remove("empty");
+      return allCells[i]; //
+    } else if (
+      allCells[i].innerText[1] == selectedEmpty &&
+      document.querySelector("#currentPlayer").innerText == "Player 2"
+    ) {
+      allCells[i].style.backgroundColor = "yellow";
+      allCells[i].classList.add("filled");
+      allCells[i].classList.add("yellow");
+      allCells[i].classList.remove("empty");
+      // console.log(allCells[i]);
+      return allCells[i];
+    }
+  }
+};
+
 // const clicked = (e) => {
 //   const fillCell = e.target.classList;
 //   fillCell.addClass("filled");
@@ -102,36 +134,6 @@ document.querySelector("#submitBtn").addEventListener("click", checkLine);
 // upon click, i need to change bkgd-clr to player color and remove class empty/ add class filled ---------- this is where i left off
 
 /// Line 94 - clicking checks if it's player 1 or 2s turn, inputs the color into the lowest empty cell.
-
-const clicked = (chicken) => {
-  const selectedEmpty = chicken.currentTarget.innerText; //checks the inner text
-  // console.log(selectedEmpty); // console.log the inner text
-  const allCells = document.querySelectorAll(".empty"); // selecting all with class .empty and displaying as an array
-  // console.log(allCells); // displaying const allCells
-  for (let i = allCells.length - 1; i >= 0; i--) {
-    // checking the cells from bottom up
-    // console.log(i);
-    if (
-      allCells[i].innerText[1] == selectedEmpty && // checking the cells from bottom up to see if they match selectedEmpty
-      document.querySelector("#currentPlayer").innerText == "Player 1" // additional requirement to check which player it is and assign color related to player
-    ) {
-      // console.log(allCells[i].innerText[a]);
-      allCells[i].style.backgroundColor = "red";
-      allCells[i].classList.add("filled");
-      allCells[i].classList.remove("empty");
-      return allCells[i]; //
-    } else if (
-      allCells[i].innerText[1] == selectedEmpty &&
-      document.querySelector("#currentPlayer").innerText == "Player 2"
-    ) {
-      allCells[i].style.backgroundColor = "yellow";
-      allCells[i].classList.add("filled");
-      allCells[i].classList.remove("empty");
-      // console.log(allCells[i]);
-      return allCells[i];
-    }
-  }
-};
 
 const slotCell = document.querySelectorAll(".row-0");
 // console.log(gameSlot);
