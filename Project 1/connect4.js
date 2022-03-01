@@ -50,10 +50,12 @@ const clicked = (chicken) => {
       document.querySelector("#currentPlayer").innerText == "Player 1" // additional requirement to check which player it is and assign color related to player
     ) {
       // console.log(allCells[i].innerText[a]);
-      allCells[i].style.backgroundColor = "red";
       allCells[i].classList.add("filled");
       allCells[i].classList.add("red");
       allCells[i].classList.remove("empty");
+      allCells[i].style.backgroundColor = "red";
+      // const applyColor = (allCells[i].style.backgroundColor = "red");
+      // setTimeout(applyColor, 2000);
       return allCells[i]; //
     } else if (
       allCells[i].innerText[1] == selectedEmpty &&
@@ -98,33 +100,44 @@ const changePlayer = (e) => {
 ////////////// ------------ Check Table
 
 /// meant to get a true or false... yup got true/false
-function checkIfFilled() {
-  // const colorChecker =
-  // document.querySelector(".filled").style.backgroundColor != "aquamarine";
-  console.log(document.querySelectorAll(".filled"));
+// function checkYellow() {
+//   const colorChecker = document.querySelectorAll(".yellow");
+//   colorChecker.forEach((chicken) => console.log(chicken.innerText));
+//   // console.log(colorChecker);
+//   // document.query;
+// }
+
+function checkLines(a, b, c, d) {
+  const colorChecker = document.querySelectorAll(".filled");
+  // console.log(colorChecker);
   // console.log(a != colorChecker && a == b && a == c && a == d);
-  // return a != colorChecker && a == b && a == c && a == d;
+  colorChecker.forEach((chicken) => console.log(chicken.style.backgroundColor));
+  return a != colorChecker && a == b && a == c && a == d;
 }
 
 // function checkForWinner(chicken) {
-//   for ()
-//     for (".row-1" = 0; c < 7; c++)
-//       if (
-//         checkLine(
-//         )
-//       )
-//         console.log(chicken);
-//   return chicken[r][c];
+//   // document.querySelector(".row-")
+//   for (r = 6; r >= 1; r--) {
+//     const selectedFilled = document.querySelectorAll(`.row-${r}.filled`);
+//     const scoringArray = [];
+//     selectedFilled.forEach((chicken) => scoringArray.push(chicken.innerText));
+//     console.log(scoringArray);
+//     if (scoringArray.length <= 4) {
+//       continue;
+//     } else {
+//     }
+//   }
 // }
 
 // const checkTable = (e) => {
 //   document.querySelector(".filled");
 // };
+
 ///////////// ---------- player change
 document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 
 ///////////// ---------- check for winner
-document.querySelector("#submitBtn").addEventListener("click", checkLine);
+// document.querySelector("#submitBtn").addEventListener("click", checkForWinner);
 
 // const actionOut = (chicken) => {
 //   const selectedCell = chicken.currentTarget;
