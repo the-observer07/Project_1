@@ -42,6 +42,10 @@ const clicked = (chicken) => {
   // console.log(selectedEmpty); // console.log the inner text
   const allCells = document.querySelectorAll(".empty"); // selecting all with class .empty and displaying as an array
   // console.log(allCells); // displaying const allCells
+
+  // const mouseTrigger = MouseEvent("click");
+  // console.log(mouseTrigger);
+
   for (let i = allCells.length - 1; i >= 0; i--) {
     // checking the cells from bottom up
     // console.log(i);
@@ -111,23 +115,68 @@ function checkLines(a, b, c, d) {
   const colorChecker = document.querySelectorAll(".filled");
   // console.log(colorChecker);
   // console.log(a != colorChecker && a == b && a == c && a == d);
-  colorChecker.forEach((chicken) => console.log(chicken.style.backgroundColor));
+  colorChecker.forEach((chicken) => chicken.style.backgroundColor);
   return a != colorChecker && a == b && a == c && a == d;
 }
 
 // function checkForWinner(chicken) {
-//   // document.querySelector(".row-")
-//   for (r = 6; r >= 1; r--) {
-//     const selectedFilled = document.querySelectorAll(`.row-${r}.filled`);
-//     const scoringArray = [];
-//     selectedFilled.forEach((chicken) => scoringArray.push(chicken.innerText));
-//     console.log(scoringArray);
-//     if (scoringArray.length <= 4) {
-//       continue;
-//     } else {
-//     }
-//   }
+//   const row = document.querySelectorAll(`.row-${r}.style.backgroundColor`);
+//   const col = document.querySelecctorAll(`.col-${c}.style.backgroundColor`);
+//   for (let r = 0; r < 4; r++)
+//     for (let c = 0; c < 8; c++)
+//       if (
+//         checkLines(
+//           chicken[r][c],
+//           chicken[r + 1][c],
+//           chicken[r + 2][c],
+//           chicken[r + 3][c]
+//         )
+//       )
+//         // console.log(checkLines);
+//         return chicken[r][c];
 // }
+
+function checkForWinner(chicken) {
+  // document.querySelector(".row-")
+  for (r = 6; r >= 1; r--) {
+    const selectedFilled = document.querySelectorAll(`.row-${r}.filled`);
+    const selectedRed = document.querySelectorAll(`.row-${r}.red`);
+    const selectedYellow = document.querySelectorAll(`.row-${r}.yellow`);
+    const scoringArray = [];
+    const scoringArrayRed = [];
+    const scoringArrayYellow = [];
+    // selectedFilled.forEach((chicken) => scoringArray.push(chicken.innerText));
+    // console.log(scoringArray);
+    selectedRed.forEach((chicken) => scoringArrayRed.push(chicken.innerText));
+    console.log(scoringArrayRed);
+    selectedYellow.forEach((chicken) =>
+      scoringArrayYellow.push(chicken.innerText)
+    );
+    console.log(scoringArrayYellow);
+
+    // check horizontal
+
+    if (scoringArrayRed.length < 4) {
+      continue;
+    } else if (scoringArrayRed.length >= 4) {
+      // math this shit //if total subtracted numbers in between = 3, red wins
+      // const subtract = (accumulator, number) => accumulator + number;
+      // console.log(scoringArray.reduce(subtract) == "3");
+      checkLines(chicken);
+      // if equal or greater than 4, i'll need to check the class if red or yellow
+    }
+    if (scoringArrayYellow.length < 4) {
+      continue;
+    } else if (scoringArrayYellow.length >= 4) {
+      //math this shit //if total subtracted math in between = 4, yellow wins
+    }
+
+    // check vertical
+    // for (c = 7; c >= 1; c--)
+    // for (r = 6; c >=1; c--)
+    //   const selectedFilled = document.querySelectorAll(`.row-${r}.col-${c}.filled`)
+  }
+}
 
 // const checkTable = (e) => {
 //   document.querySelector(".filled");
@@ -137,7 +186,7 @@ function checkLines(a, b, c, d) {
 document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 
 ///////////// ---------- check for winner
-// document.querySelector("#submitBtn").addEventListener("click", checkForWinner);
+document.querySelector("#submitBtn").addEventListener("click", checkForWinner);
 
 // const actionOut = (chicken) => {
 //   const selectedCell = chicken.currentTarget;
@@ -152,7 +201,13 @@ const slotCell = document.querySelectorAll(".row-0");
 // console.log(gameSlot);
 slotCell.forEach((slot) => slot.addEventListener("mouseenter", actionIn)); //highlight cell when mousing over
 slotCell.forEach((slot) => slot.addEventListener("mouseleave", actionOut)); //remove highlighted cell when leaving cell
-slotCell.forEach((chicken) => chicken.addEventListener("click", clicked));
+slotCell.forEach(
+  (chicken) => chicken.addEventListener("click", clicked)
+  // .removeEventListener("click", clicked)
+);
+// {
+//   chicken.disabled = true
+// };
 // slotCell.addEventListener("click", playerChipIn);
 // slotCell.on("mouseenter", "", colorChange);
 // slotCell.on("mouseleave");

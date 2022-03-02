@@ -1,0 +1,14 @@
+What's left to be completed:
+
+
+
+disable after click on board and switch player
+
+animation of tokens dropping down
+
+logic for winning
+
+
+
+// current issues
+- hover image is glitching
