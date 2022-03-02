@@ -59,6 +59,8 @@ const clicked = (chicken) => {
       allCells[i].classList.add("red");
       allCells[i].classList.remove("empty");
       allCells[i].style.backgroundColor = "red";
+      alert("It's player 2's turn!");
+
       // const applyColor = (allCells[i].style.backgroundColor = "red");
       // setTimeout(applyColor, 2000);
       return allCells[i]; //
@@ -70,11 +72,23 @@ const clicked = (chicken) => {
       allCells[i].classList.add("filled");
       allCells[i].classList.add("yellow");
       allCells[i].classList.remove("empty");
+      alert("It's player 1's turn!");
       // console.log(allCells[i]);
       return allCells[i];
     }
   }
 };
+
+const changePlayer = (e) => {
+  if (document.querySelector("#currentPlayer").innerText == "Player 1") {
+    document.querySelector("#currentPlayer").innerText = "Player 2";
+  } else {
+    document.querySelector("#currentPlayer").innerText = "Player 1";
+  }
+  return changePlayer;
+};
+
+document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 
 // const clicked = (e) => {
 //   const fillCell = e.target.classList;
@@ -93,14 +107,6 @@ const clicked = (chicken) => {
 // }
 
 /////////////// ----------- Switching Player
-
-const changePlayer = (e) => {
-  if (document.querySelector("#currentPlayer").innerText == "Player 1") {
-    document.querySelector("#currentPlayer").innerText = "Player 2";
-  } else {
-    document.querySelector("#currentPlayer").innerText = "Player 1";
-  }
-};
 
 ////////////// ------------ Check Table
 
@@ -291,47 +297,48 @@ function checkForWinner(chicken) {
       }
     }
   }
-}
 
-// Check Diagonals neg
-// function check
-const selectedRedDiagN = document.querySelectorAll(`.diagn.red`);
-const selectedYellowDiagN = document.querySelectorAll(`.diagn.yellow`);
-// console.log(selectedRedDiag);
-const scoringArrayDiagNRed = [];
-const scoringArrayDiagNYellow = [];
-selectedRedDiagN.forEach((chicken) =>
-  scoringArrayDiagNRed.push(chicken.innerText)
-);
-selectedYellowDiagN.forEach((chicken) =>
-  scoringArrayDiagNYellow.push(chicken.innerText)
-);
-console.log(scoringArrayDiagNRed);
+  // Check Diagonals neg
 
-if (scoringArrayDiagNRed.length >= 4) {
-  deltas = scoringArrayDiagNRed.map((v, i, a) => v - (a[i - 1] || a[0]));
+  // function check
 
-  // console.log(deltas);
+  const selectedRedDiagN = document.querySelectorAll(`.diagn.red`);
+  const selectedYellowDiagN = document.querySelectorAll(`.diagn.yellow`);
+  // console.log(selectedRedDiagN);
+  const scoringArrayDiagNRed = [];
+  const scoringArrayDiagNYellow = [];
+  selectedRedDiagN.forEach((chicken) =>
+    scoringArrayDiagNRed.push(chicken.innerText)
+  );
+  selectedYellowDiagN.forEach((chicken) =>
+    scoringArrayDiagNYellow.push(chicken.innerText)
+  );
+  console.log(scoringArrayDiagNRed);
 
-  const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
-  // console.log(sum);
-
-  if (sum == "") {
-    alert("Player 1 won!");
-    //math this shit //if total subtracted math in between = 4, yellow wins
-  }
-
-  if (scoringArrayDiagNYellow.length >= 4) {
-    deltas = scoringArrayDiagNYellow.map((v, i, a) => v - (a[i - 1] || a[0]));
+  if (scoringArrayDiagNRed.length >= 4) {
+    deltas = scoringArrayDiagNRed.map((v, i, a) => v - (a[i - 1] || a[0]));
 
     console.log(deltas);
 
     const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
     console.log(sum);
 
-    if (sum == "") {
+    if (sum == "33") {
+      alert("Player 1 won!");
+      //   //math this shit //if total subtracted math in between = 4, yellow wins
+    }
+  }
+  if (scoringArrayDiagNYellow.length >= 4) {
+    deltas = scoringArrayDiagNYellow.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+    // console.log(deltas);
+
+    const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+    // console.log(sum);
+
+    if ((sum = "33")) {
       alert("Player 2 won!");
-      //math this shit //if total subtracted math in between = 4, yellow wins
+      //     //math this shit //if total subtracted math in between = 4, yellow wins
     }
   }
 }
@@ -341,7 +348,6 @@ if (scoringArrayDiagNRed.length >= 4) {
 // };
 
 ///////////// ---------- player change
-document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 
 ///////////// ---------- check for winner
 document.querySelector("#submitBtn").addEventListener("click", checkForWinner);
@@ -359,8 +365,23 @@ const slotCell = document.querySelectorAll(".row-0");
 
 // console.log(gameSlot);
 slotCell.forEach((slot) => slot.addEventListener("mouseenter", actionIn)); //highlight cell when mousing over
+
+// can display image on mouseenter
+
 slotCell.forEach((slot) => slot.addEventListener("mouseleave", actionOut)); //remove highlighted cell when leaving cell
+
+// hide on mouseleave
+
 slotCell.forEach((chicken) => chicken.addEventListener("click", clicked));
+
+// const clickCount = 0
+
+// function countClicks(){
+//   let clickLimit = 1;
+//   if (clickCount >= clickLimit) {
+//     alert
+//   }
+// }
 // document.querySelector("#board-ext").addEventListener("click", clicked);
 //// ------------- for each causing repetition issue...
 
