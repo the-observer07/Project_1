@@ -1,3 +1,203 @@
+function checkForWinner(chicken) {
+  // document.querySelector(".row-")
+  for (r = 6; r >= 1; r--) {
+    const selectedFilled = document.querySelectorAll(`.row-${r}.filled`);
+    const selectedRed = document.querySelectorAll(`.row-${r}.red`);
+    const selectedYellow = document.querySelectorAll(`.row-${r}.yellow`);
+    const scoringArray = [];
+    const scoringArrayRed = [];
+    const scoringArrayYellow = [];
+    // selectedFilled.forEach((chicken) => scoringArray.push(chicken.innerText));
+    // console.log(scoringArray);
+    selectedRed.forEach((chicken) => scoringArrayRed.push(chicken.innerText));
+    // console.log(scoringArrayRed);
+    selectedYellow.forEach((chicken) =>
+      scoringArrayYellow.push(chicken.innerText)
+    );
+    // console.log(scoringArrayYellow);
+
+    // check horizontal
+
+    if (scoringArrayRed.length >= 4) {
+      deltas = scoringArrayRed.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+      // console.log(deltas);
+
+      const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+      // console.log(sum);
+
+      if (sum == "3") {
+        alert("Player 1 won!");
+      }
+      // math this shit //if total subtracted numbers in between = 3, red wins
+      // const subtract = (accumulator, number) => accumulator + number;
+      // console.log(scoringArray.reduce(subtract) == "3");
+
+      // if equal or greater than 4, i'll need to check the class if red or yellow
+    }
+
+    if (scoringArrayYellow.length >= 4) {
+      deltas = scoringArrayYellow.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+      // console.log(deltas);
+
+      const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+      // console.log(sum);
+
+      if (sum == "3") {
+        alert("Player 2 won!");
+        //math this shit //if total subtracted math in between = 4, yellow wins
+      }
+    }
+  }
+
+  // check vertical
+
+  for (c = 7; c >= 1; c--) {
+    const selectedRedVertical = document.querySelectorAll(`.col-${c}.red`);
+    const selectedYellowVertical = document.querySelectorAll(
+      `.col-${c}.yellow`
+    );
+    const scoringArrayRedVertical = [];
+    const scoringArrayYellowVertical = [];
+    // console.log(selectedRedVertical);
+    selectedRedVertical.forEach((chicken) =>
+      scoringArrayRedVertical.push(chicken.innerText)
+    );
+    selectedYellowVertical.forEach((chicken) =>
+      scoringArrayYellowVertical.push(chicken.innerText)
+    );
+    // console.log(scoringArrayRedVertical);
+
+    if (scoringArrayRedVertical.length >= 4) {
+      deltas = scoringArrayRedVertical.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+      // console.log(deltas);
+
+      const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+      // console.log(sum);
+
+      if (sum == "30") {
+        alert("Player 1 won!");
+      }
+    }
+    // math this shit //if total subtracted numbers in between = 3, red wins
+    // const subtract = (accumulator, number) => accumulator + number;
+    // console.log(scoringArray.reduce(subtract) == "3");
+
+    // if equal or greater than 4, i'll need to check the class if red or yellow
+
+    if (scoringArrayYellowVertical.length >= 4) {
+      deltas = scoringArrayYellowVertical.map(
+        (v, i, a) => v - (a[i - 1] || a[0])
+      );
+
+      // console.log(deltas);
+
+      const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+      // console.log(sum);
+
+      if (sum == "30") {
+        alert("Player 2 won!");
+      }
+      // math this shit //if total subtracted numbers in between = 3, red wins
+      // const subtract = (accumulator, number) => accumulator + number;
+      // console.log(scoringArray.reduce(subtract) == "3");
+
+      // if equal or greater than 4, i'll need to check the class if red or yellow
+    }
+    // console.log(selectedRedVertical);
+    // if total sum of subtracted values = 30, either side wins
+  }
+
+  // Check Diagonals positive
+
+  const selectedRedDiag = document.querySelectorAll(`.diagp.red`);
+  const selectedYellowDiag = document.querySelectorAll(`.diagp.yellow`);
+  // console.log(selectedRedDiag);
+  const scoringArrayDiagRed = [];
+  const scoringArrayDiagYellow = [];
+  selectedRedDiag.forEach((chicken) =>
+    scoringArrayDiagRed.push(chicken.innerText)
+  );
+  selectedYellowDiag.forEach((chicken) =>
+    scoringArrayDiagYellow.push(chicken.innerText)
+  );
+  // console.log(scoringArrayDiagYellow);
+
+  if (scoringArrayDiagRed.length >= 4) {
+    deltas = scoringArrayDiagRed.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+    // console.log(deltas);
+
+    const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+    // console.log(sum);
+
+    if (sum == "27") {
+      alert("Player 1 won!");
+      //math this shit //if total subtracted math in between = 4, yellow wins
+    }
+
+    if (scoringArrayDiagYellow.length >= 4) {
+      deltas = scoringArrayDiagYellow.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+      // console.log(deltas);
+
+      const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+      // console.log(sum);
+
+      if (sum == "27") {
+        alert("Player 2 won!");
+        //math this shit //if total subtracted math in between = 4, yellow wins
+      }
+    }
+  }
+
+  // Check Diagonals neg
+
+  // function check
+
+  const selectedRedDiagN = document.querySelectorAll(`.diagn.red`);
+  const selectedYellowDiagN = document.querySelectorAll(`.diagn.yellow`);
+  // console.log(selectedRedDiagN);
+  const scoringArrayDiagNRed = [];
+  const scoringArrayDiagNYellow = [];
+  selectedRedDiagN.forEach((chicken) =>
+    scoringArrayDiagNRed.push(chicken.innerText)
+  );
+  selectedYellowDiagN.forEach((chicken) =>
+    scoringArrayDiagNYellow.push(chicken.innerText)
+  );
+  console.log(scoringArrayDiagNRed);
+
+  if (scoringArrayDiagNRed.length >= 4) {
+    deltas = scoringArrayDiagNRed.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+    console.log(deltas);
+
+    const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+    console.log(sum);
+
+    if (sum == "33") {
+      alert("Player 1 won!");
+      //   //math this shit //if total subtracted math in between = 4, yellow wins
+    }
+  }
+  if (scoringArrayDiagNYellow.length >= 4) {
+    deltas = scoringArrayDiagNYellow.map((v, i, a) => v - (a[i - 1] || a[0]));
+
+    // console.log(deltas);
+
+    const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
+    // console.log(sum);
+
+    if ((sum = "33")) {
+      alert("Player 2 won!");
+      //     //math this shit //if total subtracted math in between = 4, yellow wins
+    }
+  }
+}
+
 // addEventListener(){
 //     const =
 // }
@@ -60,7 +260,12 @@ const clicked = (chicken) => {
       allCells[i].classList.remove("empty");
       allCells[i].style.backgroundColor = "red";
       alert("It's player 2's turn!");
-
+      if (document.querySelector("#currentPlayer").innerText == "Player 1") {
+        document.querySelector("#currentPlayer").innerText = "Player 2";
+      } else {
+        document.querySelector("#currentPlayer").innerText = "Player 1";
+      }
+      checkForWinner();
       // const applyColor = (allCells[i].style.backgroundColor = "red");
       // setTimeout(applyColor, 2000);
       return allCells[i]; //
@@ -73,22 +278,28 @@ const clicked = (chicken) => {
       allCells[i].classList.add("yellow");
       allCells[i].classList.remove("empty");
       alert("It's player 1's turn!");
+      if (document.querySelector("#currentPlayer").innerText == "Player 1") {
+        document.querySelector("#currentPlayer").innerText = "Player 2";
+      } else {
+        document.querySelector("#currentPlayer").innerText = "Player 1";
+      }
+      checkForWinner();
       // console.log(allCells[i]);
       return allCells[i];
     }
   }
 };
 
-const changePlayer = (e) => {
-  if (document.querySelector("#currentPlayer").innerText == "Player 1") {
-    document.querySelector("#currentPlayer").innerText = "Player 2";
-  } else {
-    document.querySelector("#currentPlayer").innerText = "Player 1";
-  }
-  return changePlayer;
-};
+// const changePlayer = (e) => {
+//   if (document.querySelector("#currentPlayer").innerText == "Player 1") {
+//     document.querySelector("#currentPlayer").innerText = "Player 2";
+//   } else {
+//     document.querySelector("#currentPlayer").innerText = "Player 1";
+//   }
+//   return changePlayer;
+// };
 
-document.querySelector("#submitBtn").addEventListener("click", changePlayer);
+// document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 
 // const clicked = (e) => {
 //   const fillCell = e.target.classList;
@@ -118,13 +329,13 @@ document.querySelector("#submitBtn").addEventListener("click", changePlayer);
 //   // document.query;
 // }
 
-function checkLines(a, b, c, d) {
-  const colorChecker = document.querySelectorAll(".filled");
-  // console.log(colorChecker);
-  // console.log(a != colorChecker && a == b && a == c && a == d);
-  colorChecker.forEach((chicken) => chicken.style.backgroundColor);
-  return a != colorChecker && a == b && a == c && a == d;
-}
+// function checkLines(a, b, c, d) {
+//   const colorChecker = document.querySelectorAll(".filled");
+//   // console.log(colorChecker);
+//   // console.log(a != colorChecker && a == b && a == c && a == d);
+//   colorChecker.forEach((chicken) => chicken.style.backgroundColor);
+//   return a != colorChecker && a == b && a == c && a == d;
+// }
 
 // function checkForWinner(chicken) {
 //   const row = document.querySelectorAll(`.row-${r}.style.backgroundColor`);
@@ -350,7 +561,7 @@ function checkForWinner(chicken) {
 ///////////// ---------- player change
 
 ///////////// ---------- check for winner
-document.querySelector("#submitBtn").addEventListener("click", checkForWinner);
+// document.querySelector("#submitBtn").addEventListener("click", checkForWinner);
 
 // const actionOut = (chicken) => {
 //   const selectedCell = chicken.currentTarget;
