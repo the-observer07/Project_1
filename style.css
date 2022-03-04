@@ -9,6 +9,11 @@ body {
   height: 100vh;
 }
 
+h4 {
+  color: rgba (255, 0, 0, 0.5);
+  justify-items: center;
+}
+
 /* h2 {
   /* text-transform: uppercase; */
 /* } */
@@ -44,8 +49,8 @@ body {
   align-items: flex-start;
   color: rgba(0, 0, 0, 0);
   /* flex-shrink: 1; */
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   /* position: absolute; */
 }
 
@@ -144,8 +149,8 @@ body {
   justify-content: space-around;
   align-items: flex-start;
   /* position: absolute; */
-  margin-left: 20%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   /* display: none; */
   /* width: 50%; */
   /* flex-shrink: 1; */
@@ -165,7 +170,7 @@ body {
   border-bottom: 5px;
   border-style: solid;
   border-color: rgb(0, 16, 163);
-  flex-shrink: 1;
+  /* flex-shrink: 1; */
   /* visibility: hidden; */
 }
 
@@ -173,9 +178,11 @@ body {
   display: flex;
   flex-direction: row;
   color: rgba(0, 0, 0, 0);
+  justify-content: center;
   /* margin-left: auto; */
   /* margin-right: auto; */
   margin: 5px;
+  width: 100%;
   /* visibility: none; */
   /* justify-items: center; */
   /* background-color: orange; */
@@ -186,24 +193,21 @@ body {
   color: rgba(0, 0, 0, 0);
   display: flex;
   flex-direction: row;
+  width: 100%;
   /* background-color: purple; */
   margin: 5px;
-}
-
-.row-2 {
-  display: flex;
-  flex-direction: row;
-  /* background-color: cyan; */
-  margin: 5px;
-  color: rgba(0, 0, 0, 0);
+  justify-content: center;
 }
 
 .row-3 {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+
   /* background-color: orange; */
   margin: 5px;
   color: rgba(0, 0, 0, 0);
+  width: 100%;
 }
 
 .row-4 {
@@ -212,6 +216,8 @@ body {
   /* background-color: pink; */
   margin: 5px;
   color: rgba(0, 0, 0, 0);
+  width: 100%;
+  justify-content: center;
 }
 
 .row-5 {
@@ -220,6 +226,8 @@ body {
   /* background-color: green; */
   margin: 5px;
   color: rgba(0, 0, 0, 0);
+  width: 100%;
+  justify-content: center;
 }
 
 .row-6 {
@@ -228,6 +236,8 @@ body {
   /* background-color: red; */
   margin: 5px;
   color: rgba(0, 0, 0, 0);
+  width: 100%;
+  justify-content: center;
 }
 
 .col-1 {
