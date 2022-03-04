@@ -116,19 +116,21 @@ function checkForWinner(chicken) {
 
   // Check Diagonals positive
 
-  const selectedRedDiag0 = document.querySelectorAll(`.diagp0.red`);
-  const selectedYellowDiag0 = document.querySelectorAll(`.diagp0.yellow`);
-  const selectedRedDiag1 = document.querySelectorAll(`.diagp1.red`);
-  const selectedYellowDiag1 = document.querySelectorAll(`.diagp1.yellow`);
-  const selectedRedDiag2 = document.querySelectorAll(`.diagp2.red`);
-  const selectedYellowDiag2 = document.querySelectorAll(`.diagp2.yellow`);
-  const selectedRedDiag3 = document.querySelectorAll(`.diagp3.red`);
-  const selectedYellowDiag3 = document.querySelectorAll(`.diagp3.yellow`);
-  const selectedRedDiag4 = document.querySelectorAll(`.diagp4.red`);
-  const selectedYellowDiag4 = document.querySelectorAll(`.diagp4.yellow`);
-  const selectedRedDiag5 = document.querySelectorAll(`.diagp5.red`);
-  const selectedYellowDiag5 = document.querySelectorAll(`.diagp5.yellow`);
-  // console.log(selectedRedDiag);
+  const selectedRedDiag0 = document.querySelectorAll(`.diagp1.red`);
+  const selectedYellowDiag0 = document.querySelectorAll(`.diagp1.yellow`);
+  const selectedRedDiag1 = document.querySelectorAll(`.diagp2.red`);
+  const selectedYellowDiag1 = document.querySelectorAll(`.diagp2.yellow`);
+  const selectedRedDiag2 = document.querySelectorAll(`.diagp3.red`);
+  const selectedYellowDiag2 = document.querySelectorAll(`.diagp3.yellow`);
+  const selectedRedDiag3 = document.querySelectorAll(`.diagp4.red`);
+  const selectedYellowDiag3 = document.querySelectorAll(`.diagp4.yellow`);
+  const selectedRedDiag4 = document.querySelectorAll(`.diagp5.red`);
+  const selectedYellowDiag4 = document.querySelectorAll(`.diagp5.yellow`);
+  const selectedRedDiag5 = document.querySelectorAll(`.diagp6.red`);
+  const selectedYellowDiag5 = document.querySelectorAll(`.diagp6.yellow`);
+
+  console.log(selectedYellowDiag0);
+
   const scoringArrayDiagRed0 = [];
   const scoringArrayDiagYellow0 = [];
   const scoringArrayDiagRed1 = [];
@@ -141,6 +143,9 @@ function checkForWinner(chicken) {
   const scoringArrayDiagYellow4 = [];
   const scoringArrayDiagRed5 = [];
   const scoringArrayDiagYellow5 = [];
+
+  // console.log(scoringArrayDiagYellow0);
+
   selectedRedDiag0.forEach((chicken) =>
     scoringArrayDiagRed0.push(chicken.innerText)
   );
@@ -236,7 +241,6 @@ function checkForWinner(chicken) {
 
   if (scoringArrayDiagYellow0.length >= 4) {
     deltas = scoringArrayDiagYellow0.map((v, i, a) => v - (a[i - 1] || a[0]));
-
     // console.log(deltas);
 
     const sum = deltas.reduce((partialSum, a) => partialSum + a, 0);
