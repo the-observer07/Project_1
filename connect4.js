@@ -1,9 +1,10 @@
 function checkForWinner(chicken) {
   // document.querySelector(".row-")
   for (r = 6; r >= 1; r--) {
-    // const selectedFilled = document.querySelectorAll(`.row-${r}.filled`);
+    const selectedFilled = document.querySelectorAll(`.row-${r}.filled`);
     const selectedRed = document.querySelectorAll(`.row-${r}.red`);
     const selectedYellow = document.querySelectorAll(`.row-${r}.yellow`);
+    const scoringArray = [];
     const scoringArrayRed = [];
     const scoringArrayYellow = [];
     // selectedFilled.forEach((chicken) => scoringArray.push(chicken.innerText));
