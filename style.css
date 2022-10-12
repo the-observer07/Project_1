@@ -9,6 +9,18 @@ body {
   height: 100vh;
 }
 
+  #title {
+  color: rgba (255, 0, 0, 0.5);
+  justify-items: center;
+  font-size: 3rem;
+}
+
+  #current-player {
+  color: rgba (255, 0, 0, 0.5);
+  justify-items: center;
+  font-size: 1.5rem;
+}
+
 h4 {
   color: rgba (255, 0, 0, 0.5);
   justify-items: center;
@@ -49,8 +61,8 @@ h4 {
   align-items: flex-start;
   color: rgba(0, 0, 0, 0);
   /* flex-shrink: 1; */
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   /* position: absolute; */
 }
 
@@ -84,7 +96,7 @@ h4 {
 }
 
 .row-0 {
-  width: 50px;
+  width: 30px;
   /* height: 50px; */
   /* padding-left:2px */
   /* display: inline-block; */
@@ -149,8 +161,8 @@ h4 {
   justify-content: space-around;
   align-items: flex-start;
   /* position: absolute; */
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
   /* display: none; */
   /* width: 50%; */
   /* flex-shrink: 1; */
@@ -174,7 +186,7 @@ h4 {
   /* visibility: hidden; */
 }
 
-.row-1 {
+.row {
   display: flex;
   flex-direction: row;
   color: rgba(0, 0, 0, 0);
@@ -241,56 +253,56 @@ h4 {
 }
 
 .col-1 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
 }
 
 .col-2 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
 }
 
 .col-3 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
 }
 
 .col-4 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
 }
 
 .col-5 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
 }
 
 .col-6 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
 }
 
 .col-7 {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   /* border: 1px; */
   background-color: aquamarine;
   border-radius: 50%;
@@ -352,3 +364,5 @@ h4 {
 
 /* #row {
 } */ ;
+
+
